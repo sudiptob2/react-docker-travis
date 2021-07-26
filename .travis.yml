@@ -9,7 +9,14 @@ script:
   - docker run sudiptob2/react-docker-travis:ci -e CI=true npm run test -- --coverage
 
 deploy:
-  provider: script
-  script: bash ./.docker/scripts/deploy.sh
-  on:
-    branch: main
+  - provider: script
+    script: bash ./.docker/scripts/deploy.sh
+    on:
+      branch: main
+  - provider: script
+    script: bash ./.docker/scripts/deploy.dev.sh
+    on:
+      branch: develop
+
+    
+    
