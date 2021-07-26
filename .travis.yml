@@ -6,7 +6,7 @@ services:
 before_install:
   - docker build -t sudiptob2/react-docker-travis:ci -f  ./.docker/ci/Dockerfile .
 script:
-  - docker run sudiptob2/react-docker-travis:ci npm run test -- --coverage
+  - docker run sudiptob2/react-docker-travis:ci -e CI=true npm run test -- --coverage
 
 deploy:
   provider: script
